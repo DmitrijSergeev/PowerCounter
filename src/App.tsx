@@ -1,6 +1,6 @@
-import './styles/App.css'
+import { Counter } from '@/components/counter/Counter'
 
-import { Counter } from './components/counter/counter'
+import './styles/App.css'
 export function App() {
   return (
     <div className={'wrapper'}>

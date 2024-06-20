@@ -3,26 +3,20 @@ import { BUTTONS_NAME } from '@/components/counter/counterSettings'
 import { Controls } from '@/components/counter/main/controls/controls'
 import { Display } from '@/components/counter/main/display/display'
 
-import s from './main.module.scss'
-
-type MainProps = {
-  currentValue: number
+type SettingsProps = {
   maxValue: number
   minValue: number
-  setStatus: (status: string) => void
+  setNewValuesHandler: () => void
   status: string
 }
-
-export const Main = ({ currentValue, setStatus, status }: MainProps) => {
-  const onClickHandler = () => !status
-
+export const Settings = ({ maxValue, minValue, setNewValuesHandler, status }: SettingsProps) => {
   return (
     <>
       <Display>
-        <span className={s.counterText}>{currentValue}</span>
+        <input />
       </Display>
       <Controls>
-        <Button name={BUTTONS_NAME.set} onClick={onClickHandler} />
+        <Button name={BUTTONS_NAME.set} onClick={setNewValuesHandler} />
       </Controls>
     </>
   )
