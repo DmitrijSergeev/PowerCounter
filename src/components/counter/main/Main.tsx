@@ -1,5 +1,5 @@
 import { Button } from '@/components/button/Button'
-import { BUTTONS_NAME } from '@/components/counter/counterSettings'
+import { BUTTONS_NAME, ERRORS_STATUS } from '@/components/counter/counterSettings'
 import { Controls } from '@/components/counter/main/controls/controls'
 import { Display } from '@/components/counter/main/display/display'
 
@@ -14,7 +14,7 @@ type MainProps = {
 }
 
 export const Main = ({ currentValue, setStatus, status }: MainProps) => {
-  const onClickHandler = () => !status
+  const onClickHandler = () => !status && setStatus(ERRORS_STATUS.change)
 
   return (
     <>
