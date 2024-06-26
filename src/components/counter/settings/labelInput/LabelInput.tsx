@@ -1,13 +1,18 @@
+import { ChangeEvent } from 'react'
+
+import s from './LabelInput.module.scss'
+
 type LabelInputProps = {
-  label: string
-  onChange: () => void
+  name: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  status: string
+  value: number
 }
-export const LabelInput = ({ label, onChange }: LabelInputProps) => {
+export const LabelInput = ({ name, onChange, status, value }: LabelInputProps) => {
   return (
     <label>
-      <span>
-        <input />
-      </span>
+      <span className={s.counterSettingsText}>{name}</span>
+      <input name={name} onChange={onChange} type={'number'} value={value} />
     </label>
   )
 }

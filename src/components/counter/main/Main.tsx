@@ -2,6 +2,7 @@ import { Button } from '@/components/button/Button'
 import { BUTTONS_NAME, ERRORS_STATUS } from '@/components/counter/counterSettings'
 import { Controls } from '@/components/counter/main/controls/controls'
 import { Display } from '@/components/counter/main/display/display'
+import clsx from 'clsx'
 
 import s from './main.module.scss'
 
@@ -27,10 +28,15 @@ export const Main = ({
   const onClickHandler = () => !status && setStatus(ERRORS_STATUS.change)
   const disabledButtonCondition = (value: number) => currentValue === value || !!status
 
+  const textErrorClasses = clsx(
+    s.counterText,
+    `${currentValue === maxValue ? ' ' + s.counterTextError : ''}`
+  )
+
   return (
     <>
       <Display>
-        <span className={s.counterText}>{currentValue}</span>
+        <span className={textErrorClasses}>{currentValue}</span>
       </Display>
       <Controls>
         <Button
